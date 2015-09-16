@@ -1,5 +1,6 @@
 play = "Y"
 
+
 def rock
   my_str = <<-art
   ___ __  __   _   ___ _  _ _ 
@@ -34,9 +35,31 @@ def scissors
   puts "Scissors cut Paper!"
 end
 
+def choose_weapon
+  puts
+  puts "Choose your weapon: "
+  puts "R) Rock" 
+  puts "P) Paper"
+  puts "S) Scissors"
+end
 
 def play_game
- puts "weeee we're playing!"
+  weapons = ["Rock", "Paper", "Scissors"]
+  choose_weapon
+  weapon_choice = gets.chomp
+  your_choice = "X"
+  if weapon_choice.capitalize.include? "R"
+    your_choice = "Rock"
+  elsif weapon_choice.capitalize.include? "P"
+    your_choice = "Paper"
+  elsif weapon_choice.capitalize.include? "S"
+    your_choice = "Scissors"
+  else
+    puts "That was not a valid choice, silly."
+  end#if
+  computer_choice = weapons.sample
+  puts "Your #{your_choice.upcase} v.s. my #{computer_choice.upcase}..."
+
 
 
 
