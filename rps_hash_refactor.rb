@@ -1,4 +1,6 @@
 #WORK IN PROGRESS
+# my favorite solution: https://www.gotealeaf.com/gists/c4809d95
+# most like my solution: https://www.gotealeaf.com/gists/fc72ed02
 
 
 #pseudocode:
