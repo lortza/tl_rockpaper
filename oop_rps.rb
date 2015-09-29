@@ -10,15 +10,24 @@
 
 def choose_weapon
   puts
-  puts "Choose your weapon: "
+  puts "Choose your weapon: R | P | S"
   puts "R) Rock" 
   puts "P) Paper"
   puts "S) Scissors"
 end
 
+def confirm_weapon_input
+  while @player_weapon != "R" && @player_weapon != "P" && @player_weapon != "S"
+    puts "I'm sorry, that's not an available weapon."
+    puts "Please type R, P, or S."
+    @player_weapon = gets.chomp.upcase
+    puts 
+  end#while
+end #confirm_weapon_input
+
 def select_computer_weapon
   @computer_weapon = @weapons.sample
-  puts "The Computer has chosen: #{@computer_weapon[:name]}."
+  puts "The Computer has chosen: #{@computer_weapon[:name]}"
 end #select_computer_weapon
 
 def convert_player_weapon_to_word
@@ -39,7 +48,7 @@ def evaluate_winner
     puts "You win!"  
   else
     convert_player_weapon_to_word
-    puts "#{@computer_weapon[:name]} beats #{@player_weapon}."
+    puts "#{@computer_weapon[:name]} beats your #{@player_weapon}."
     puts "Computer wins!" 
   end#if
 end #evaluate_winner
@@ -47,6 +56,7 @@ end #evaluate_winner
 def play_game
   choose_weapon
   @player_weapon = gets.chomp.to_s.upcase!
+  confirm_weapon_input
   select_computer_weapon
   evaluate_winner
 end #play_game
